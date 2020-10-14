@@ -11,7 +11,7 @@ function Header() {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className={classes.headerContainer}>
       <AppBar position="static">
         <Toolbar>
           <div>

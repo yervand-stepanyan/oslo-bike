@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles({
   mapContainer: {
-    height: '70vh',
+    height: '85vh',
     width: '100%',
   },
   navigationControlContainer: {

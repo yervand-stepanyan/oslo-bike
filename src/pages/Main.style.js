@@ -4,4 +4,10 @@ export const useStyles = makeStyles({
   mainContainer: {
     height: '100vh',
   },
+  buttonGroupContainer: {
+    height: '6vh',
+  },
+  buttonGroup: {
+    height: '100%',
+  },
 });
