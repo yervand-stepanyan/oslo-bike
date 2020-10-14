@@ -16,6 +16,7 @@ function Main() {
   const classes = useStyles();
   const [stationInformation, setStationInformation] = useState();
   const [stationStatus, setStationStatus] = useState();
+  const [isBikeActive, setIsBikeActive] = useState(true);
 
   const getData = async () => {
     try {
@@ -34,6 +35,18 @@ function Main() {
     getData();
   }, []);
 
+  const handleBikeClick = () => {
+    if (!isBikeActive) {
+      setIsBikeActive(!isBikeActive);
+    }
+  };
+
+  const handleParkingClick = () => {
+    if (isBikeActive) {
+      setIsBikeActive(!isBikeActive);
+    }
+  };
+
   return (
     <div className={classes.mainContainer}>
       <Header />
@@ -51,10 +64,20 @@ function Main() {
               variant="contained"
               fullWidth
             >
-              <Button>
+              <Button
+                className={
+                  isBikeActive ? classes.activeBtn : classes.defaultBtn
+                }
+                onClick={handleBikeClick}
+              >
                 <DirectionsBikeIcon />
               </Button>
-              <Button>
+              <Button
+                className={
+                  !isBikeActive ? classes.activeBtn : classes.defaultBtn
+                }
+                onClick={handleParkingClick}
+              >
                 <LocalParkingIcon />
               </Button>
             </ButtonGroup>

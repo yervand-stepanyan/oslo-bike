@@ -13,4 +13,10 @@ export const useStyles = makeStyles({
   buttonGroup: {
     height: '100%',
   },
+  activeBtn: {
+    backgroundColor: '#005FC9',
+  },
+  defaultBtn: {
+    backgroundColor: '#7fafe4',
+  },
 });
