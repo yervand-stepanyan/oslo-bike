@@ -1,22 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import DirectionsBikeIcon from '@material-ui/icons/DirectionsBike';
 import LocalParkingIcon from '@material-ui/icons/LocalParking';
 
+import { addSelectedStation } from '../state/actions';
 import API from '../fetchAPI';
 import { API_ROUTES } from '../globals/constants';
 import Header from '../components/Header';
+import { initialState, stationReducer } from '../state/reducer';
 import Loader from '../components/Loader';
 import Map from '../components/Map';
+import StoreContext from '../state/context';
 import { useStyles } from './Main.style';
 
 function Main() {
   const classes = useStyles();
+  const [isBikeActive, setIsBikeActive] = useState(true);
   const [stationInformation, setStationInformation] = useState();
   const [stationStatus, setStationStatus] = useState();
-  const [isBikeActive, setIsBikeActive] = useState(true);
+  const [stateSelectedStation, dispatchSelectedStation] = useReducer(
+    stationReducer,
+    initialState
+  );
 
   const getData = async () => {
     try {
@@ -35,57 +42,67 @@ function Main() {
     getData();
   }, []);
 
-  const handleBikeClick = () => {
+  const handleBikeSelect = () => {
     if (!isBikeActive) {
       setIsBikeActive(!isBikeActive);
     }
   };
 
-  const handleParkingClick = () => {
+  const handleParkingSelect = () => {
     if (isBikeActive) {
       setIsBikeActive(!isBikeActive);
     }
   };
 
+  const handleStationSelect = station => {
+    const filteredStation = stationStatus.find(
+      stn => stn.station_id === station.station_id
+    );
+
+    dispatchSelectedStation(addSelectedStation(filteredStation));
+  };
+
   return (
     <div className={classes.mainContainer}>
-      <Header />
-      {stationInformation && stationStatus ? (
-        <div className={classes.mapAndButtonGroupWrapper}>
-          <Map
-            stationInformation={stationInformation}
-            stationStatus={stationStatus}
-          />
-          <div className={classes.buttonGroupContainer}>
-            <ButtonGroup
-              aria-label="outlined primary button group"
-              className={classes.buttonGroup}
-              color="primary"
-              variant="contained"
-              fullWidth
-            >
-              <Button
-                className={
-                  isBikeActive ? classes.activeBtn : classes.defaultBtn
-                }
-                onClick={handleBikeClick}
+      <StoreContext.Provider value={stateSelectedStation}>
+        <Header />
+        {stationInformation && stationStatus ? (
+          <div className={classes.mapAndButtonGroupWrapper}>
+            <Map
+              handleStationSelect={handleStationSelect}
+              stationInformation={stationInformation}
+            />
+            <div className={classes.buttonGroupContainer}>
+              <ButtonGroup
+                aria-label="outlined primary button group"
+                className={classes.buttonGroup}
+                color="primary"
+                fullWidth
+                variant="contained"
               >
-                <DirectionsBikeIcon />
-              </Button>
-              <Button
-                className={
-                  !isBikeActive ? classes.activeBtn : classes.defaultBtn
-                }
-                onClick={handleParkingClick}
-              >
-                <LocalParkingIcon />
-              </Button>
-            </ButtonGroup>
+                <Button
+                  className={
+                    isBikeActive ? classes.activeBtn : classes.defaultBtn
+                  }
+                  onClick={handleBikeSelect}
+                >
+                  <DirectionsBikeIcon />
+                </Button>
+                <Button
+                  className={
+                    !isBikeActive ? classes.activeBtn : classes.defaultBtn
+                  }
+                  onClick={handleParkingSelect}
+                >
+                  <LocalParkingIcon />
+                </Button>
+              </ButtonGroup>
+            </div>
           </div>
-        </div>
-      ) : (
-        <Loader />
-      )}
+        ) : (
+          <Loader />
+        )}
+      </StoreContext.Provider>
     </div>
   );
 }
