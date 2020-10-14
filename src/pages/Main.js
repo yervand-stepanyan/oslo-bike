@@ -8,6 +8,7 @@ import LocalParkingIcon from '@material-ui/icons/LocalParking';
 import API from '../fetchAPI';
 import { API_ROUTES } from '../globals/constants';
 import Header from '../components/Header';
+import Loader from '../components/Loader';
 import Map from '../components/Map';
 import { useStyles } from './Main.style';
 
@@ -36,26 +37,32 @@ function Main() {
   return (
     <div className={classes.mainContainer}>
       <Header />
-      <Map
-        stationInformation={stationInformation}
-        stationStatus={stationStatus}
-      />
-      <div className={classes.buttonGroupContainer}>
-        <ButtonGroup
-          aria-label="outlined primary button group"
-          className={classes.buttonGroup}
-          color="primary"
-          variant="contained"
-          fullWidth
-        >
-          <Button>
-            <DirectionsBikeIcon />
-          </Button>
-          <Button>
-            <LocalParkingIcon />
-          </Button>
-        </ButtonGroup>
-      </div>
+      {stationInformation && stationStatus ? (
+        <div className={classes.mapAndButtonGroupWrapper}>
+          <Map
+            stationInformation={stationInformation}
+            stationStatus={stationStatus}
+          />
+          <div className={classes.buttonGroupContainer}>
+            <ButtonGroup
+              aria-label="outlined primary button group"
+              className={classes.buttonGroup}
+              color="primary"
+              variant="contained"
+              fullWidth
+            >
+              <Button>
+                <DirectionsBikeIcon />
+              </Button>
+              <Button>
+                <LocalParkingIcon />
+              </Button>
+            </ButtonGroup>
+          </div>
+        </div>
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 }

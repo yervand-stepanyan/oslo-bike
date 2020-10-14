@@ -4,6 +4,9 @@ export const useStyles = makeStyles({
   mainContainer: {
     height: '100vh',
   },
+  mapAndButtonGroupWrapper: {
+    height: '91vh',
+  },
   buttonGroupContainer: {
     height: '6vh',
   },
