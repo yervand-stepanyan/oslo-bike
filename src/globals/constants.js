@@ -1,10 +1,5 @@
 import logo from '../assets/images/logo_200x140.png';
 
-export const LOGO_IMAGE = {
-  src: logo,
-  title: 'Oslo bike logo',
-};
-export const TITLE = 'Oslo bike';
 export const API_ROUTES = [
   {
     name: 'station information',
@@ -15,3 +10,14 @@ export const API_ROUTES = [
     url: 'station_status.json',
   },
 ];
+export const LOGO_IMAGE = {
+  src: logo,
+  title: 'Oslo bike logo',
+};
+export const MAP_CENTER = {
+  latitude: 59.91333,
+  longitude: 10.73897,
+  zoom: 11,
+};
+export const MAP_STYLE = 'mapbox://styles/mapbox/streets-v11';
+export const TITLE = 'Oslo bike';

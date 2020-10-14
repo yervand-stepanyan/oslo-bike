@@ -28,6 +28,7 @@
       "error",
       "unix"
     ],
+    "react/forbid-prop-types": "off",
     "react/jsx-filename-extension": [
       1,
       {
@@ -36,6 +37,7 @@
           ".jsx"
         ]
       }
-    ]
+    ],
+    "react/jsx-props-no-spreading": "off"
   }
 }
