@@ -1,4 +1,4 @@
-import bike from '../assets/icons/bicycle_32x32.png';
+import bike from '../assets/icons/bicycle_32x24.png';
 import parking from '../assets/icons/parking_32x32.png';
 import logo from '../assets/images/logo_200x140.png';
 
@@ -12,6 +12,16 @@ export const API_ROUTES = [
     url: 'station_status.json',
   },
 ];
+export const AVAILABLE_INFO = {
+  bike: {
+    multi: 'bikes',
+    single: 'bike',
+  },
+  parking: {
+    multi: 'available spots',
+    single: 'available spot',
+  },
+};
 export const ICON = {
   bike: {
     src: bike,

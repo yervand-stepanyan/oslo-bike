@@ -13,11 +13,28 @@ export const useStyles = makeStyles({
     flexDirection: 'column',
     marginTop: '16px',
   },
-  bikeWrapper: {
+  iconTextWrapper: {
+    display: 'flex',
+    alignItems: 'center',
     marginBottom: '10px',
   },
-  icon: {
+  bikeIconWrapper: {
+    height: '24px',
+    weight: '32px',
+  },
+  bikeIcon: {
+    height: '24px',
+    weight: '32px',
+  },
+  parkingIconWrapper: {
     height: '32px',
     weight: '32px',
+  },
+  parkingIcon: {
+    height: '32px',
+    weight: '32px',
+  },
+  textWrapper: {
+    marginLeft: '10px',
   },
 });
