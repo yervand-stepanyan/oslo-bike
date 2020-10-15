@@ -49,6 +49,10 @@ function Map({
     setSelectedStation(station);
 
     handleStationSelect(station);
+
+    if (selectedStation && selectedStation.station_id === station.station_id) {
+      handlePopupClose();
+    }
   };
 
   return (
