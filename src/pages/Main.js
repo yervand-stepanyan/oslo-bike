@@ -23,6 +23,7 @@ function Main() {
     stationReducer,
     initialState
   );
+  const [timer, setTimer] = useState(1);
 
   const getData = async () => {
     try {
@@ -32,8 +33,10 @@ function Main() {
 
       await setStationInformation(responseDataArray[0].data.stations);
       await setStationStatus(responseDataArray[1].data.stations);
+
+      setTimer(setTimeout(getData, 10000));
     } catch (e) {
-      setIsLoading(false);
+      clearTimeout(timer);
     } finally {
       setIsLoading(false);
     }
