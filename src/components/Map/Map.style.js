@@ -10,4 +10,10 @@ export const useStyles = makeStyles({
     left: '10px',
     position: 'absolute',
   },
+  markerWrapper: {
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
+    outline: 'none',
+  },
 });
