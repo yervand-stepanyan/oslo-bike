@@ -17,18 +17,16 @@ function PopupCard({ address, name }) {
   return (
     <div className={classes.popupCardContainer}>
       <div className={classes.nameAddressContainer}>
-        <div>
-          <Typography variant="h6">{name}</Typography>
+        <div className={classes.nameWrapper}>
+          <span className={classes.span}>{name}</span>
         </div>
-        <div>
-          <Typography color="textSecondary" variant="subtitle1">
-            {address}
-          </Typography>
+        <div className={classes.addressWrapper}>
+          <span className={classes.span}>{address}</span>
         </div>
       </div>
       <div className={classes.bikeParkingContainer}>
         <div className={classes.iconTextWrapper}>
-          <div className={classes.bikeIconWrapper}>
+          <div className={classes.bikeIcon}>
             <img
               alt={ICON.bike.title}
               className={classes.bikeIcon}
@@ -46,7 +44,7 @@ function PopupCard({ address, name }) {
           </div>
         </div>
         <div className={classes.iconTextWrapper}>
-          <div className={classes.parkingIconWrapper}>
+          <div className={classes.parkingIcon}>
             <img
               alt={ICON.parking.title}
               className={classes.parkingIcon}
