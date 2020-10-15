@@ -31,4 +31,7 @@ export const useStyles = makeStyles({
   numberSpan: {
     fontSize: '10px',
   },
+  popup: {
+    cursor: 'default',
+  },
 });

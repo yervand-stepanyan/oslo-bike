@@ -86,9 +86,14 @@ function Map({
           ))}
         {selectedStation ? (
           <Popup
+            anchor="top"
+            className={classes.popup}
             closeOnClick={false}
+            dynamicPosition={false}
             latitude={selectedStation.lat}
             longitude={selectedStation.lon}
+            offsetLeft={11}
+            offsetTop={22}
             onClose={() => handlePopupClose()}
           >
             <PopupCard

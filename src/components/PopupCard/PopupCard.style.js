@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles({
   popupCardContainer: {
     boxSizing: 'border-box',
-    cursor: 'default',
     padding: '12px',
   },
   nameAddressContainer: {
