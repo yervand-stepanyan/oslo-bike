@@ -11,13 +11,16 @@ import { API_ROUTES } from '../globals/constants';
 import Header from '../components/Header';
 import { initialState, stationReducer } from '../state/reducer';
 import Loader from '../components/Loader';
+import { loadState, saveState } from '../helpers/localStorage';
 import Map from '../components/Map';
 import StoreContext from '../state/context';
 import { useStyles } from './Main.style';
 
 function Main() {
   const classes = useStyles();
-  const [isBikeActive, setIsBikeActive] = useState(true);
+  const [isBikeActive, setIsBikeActive] = useState(
+    loadState('isBikeActive') !== undefined ? loadState('isBikeActive') : true
+  );
   const [stationInformation, setStationInformation] = useState();
   const [stationStatus, setStationStatus] = useState();
   const [stateSelectedStation, dispatchSelectedStation] = useReducer(
@@ -45,12 +48,16 @@ function Main() {
   const handleBikeSelect = () => {
     if (!isBikeActive) {
       setIsBikeActive(!isBikeActive);
+
+      saveState('isBikeActive', !isBikeActive);
     }
   };
 
   const handleParkingSelect = () => {
     if (isBikeActive) {
       setIsBikeActive(!isBikeActive);
+
+      saveState('isBikeActive', !isBikeActive);
     }
   };
 
