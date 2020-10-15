@@ -43,6 +43,12 @@ function Map({
     setSelectedStation(null);
   };
 
+  const handleMapClick = () => {
+    if (selectedStation) {
+      handlePopupClose();
+    }
+  };
+
   const handleStationClick = (event, station) => {
     event.preventDefault();
 
@@ -62,6 +68,7 @@ function Map({
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         mapStyle={MAP_STYLE}
         onViewportChange={newViewport => setViewport(newViewport)}
+        onClick={handleMapClick}
       >
         <div className={classes.navigationControlContainer}>
           <NavigationControl showCompass={false} />
