@@ -111,9 +111,7 @@ function Map() {
             <PopupCard
               address={selectedStation.address}
               name={selectedStation.name}
-            >
-              Station
-            </PopupCard>
+            />
           </Popup>
         ) : null}
       </ReactMapGL>
