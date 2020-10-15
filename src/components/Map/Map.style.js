@@ -11,9 +11,24 @@ export const useStyles = makeStyles({
     position: 'absolute',
   },
   markerWrapper: {
-    background: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     border: 'none',
+    borderRadius: '50%',
+    color: 'white',
     cursor: 'pointer',
+    height: '22px',
     outline: 'none',
+    width: '22px',
+  },
+  markerAvailable: {
+    backgroundColor: '#005FC9',
+  },
+  markerNotAvailable: {
+    backgroundColor: 'grey',
+  },
+  numberSpan: {
+    fontSize: '10px',
   },
 });

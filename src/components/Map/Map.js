@@ -6,7 +6,12 @@ import { MAP_CENTER, MAP_STYLE } from '../../globals/constants';
 import PopupCard from '../PopupCard';
 import { useStyles } from './Map.style';
 
-function Map({ handleStationSelect, stationInformation }) {
+function Map({
+  handleStationSelect,
+  isBikeActive,
+  stationInformation,
+  stationStatus,
+}) {
   const classes = useStyles();
   const [viewport, setViewport] = useState({
     height: '100%',
@@ -16,6 +21,9 @@ function Map({ handleStationSelect, stationInformation }) {
     zoom: MAP_CENTER.zoom,
   });
   const [selectedStation, setSelectedStation] = useState(null);
+  const availableNumbers = isBikeActive
+    ? stationStatus.map(station => station.num_bikes_available)
+    : stationStatus.map(station => station.num_docks_available);
 
   useEffect(() => {
     const listener = event => {
@@ -55,18 +63,24 @@ function Map({ handleStationSelect, stationInformation }) {
           <NavigationControl showCompass={false} />
         </div>
         {stationInformation &&
-          stationInformation.map(station => (
+          stationInformation.map((station, index) => (
             <Marker
               key={station.station_id}
               latitude={station.lat}
               longitude={station.lon}
             >
               <button
-                className={classes.markerWrapper}
+                className={`${classes.markerWrapper} ${
+                  availableNumbers[index]
+                    ? classes.markerAvailable
+                    : classes.markerNotAvailable
+                }`}
                 onClick={e => handleStationClick(e, station)}
                 type="button"
               >
-                O
+                <span className={classes.numberSpan}>
+                  {availableNumbers[index]}
+                </span>
               </button>
             </Marker>
           ))}
@@ -92,7 +106,9 @@ function Map({ handleStationSelect, stationInformation }) {
 
 Map.propTypes = {
   handleStationSelect: PropTypes.func.isRequired,
+  isBikeActive: PropTypes.bool.isRequired,
   stationInformation: PropTypes.array.isRequired,
+  stationStatus: PropTypes.array.isRequired,
 };
 
 export default Map;

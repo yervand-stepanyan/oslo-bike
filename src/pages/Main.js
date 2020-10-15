@@ -70,7 +70,9 @@ function Main() {
           <div className={classes.mapAndButtonGroupWrapper}>
             <Map
               handleStationSelect={handleStationSelect}
+              isBikeActive={isBikeActive}
               stationInformation={stationInformation}
+              stationStatus={stationStatus}
             />
             <div className={classes.buttonGroupContainer}>
               <ButtonGroup
