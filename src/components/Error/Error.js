@@ -11,7 +11,7 @@ function Error() {
     <div className={classes.errorContainer}>
       <div className={classes.textWrapper}>
         <div>
-          <Typography variant="h4" color="error">
+          <Typography color="error" variant="h4">
             {ERROR_MESSAGE.title}
           </Typography>
         </div>
