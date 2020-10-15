@@ -22,6 +22,10 @@ export const AVAILABLE_INFO = {
     single: 'available spot',
   },
 };
+export const ERROR_MESSAGE = {
+  subtitle: 'Please, try again later!',
+  title: 'Error while loading data!',
+};
 export const ICON = {
   bike: {
     src: bike,

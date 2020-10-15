@@ -9,10 +9,11 @@ import { useStyles } from './PopupCard.style';
 
 function PopupCard({ address, name }) {
   const classes = useStyles();
+  const { stateSelectedStation } = useStore();
   const {
     num_bikes_available: numOfBikes,
-    num_docks_available: numOfParkings,
-  } = useStore();
+    num_docks_available: numOfDocks,
+  } = stateSelectedStation;
 
   return (
     <div className={classes.popupCardContainer}>
@@ -53,8 +54,8 @@ function PopupCard({ address, name }) {
           </div>
           <div className={classes.textWrapper}>
             <Typography variant="subtitle1">
-              {`${numOfParkings} ${
-                numOfParkings === 1
+              {`${numOfDocks} ${
+                numOfDocks === 1
                   ? AVAILABLE_INFO.parking.single
                   : AVAILABLE_INFO.parking.multi
               }`}

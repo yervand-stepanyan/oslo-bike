@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import ReactMapGL, { Marker, NavigationControl, Popup } from 'react-map-gl';
-import PropTypes from 'prop-types';
 
 import { MAP_CENTER, MAP_STYLE } from '../../globals/constants';
 import PopupCard from '../PopupCard';
 import { useStyles } from './Map.style';
+import { useStore } from '../../state/useStore';
 
-function Map({
-  handleStationSelect,
-  isBikeActive,
-  stationInformation,
-  stationStatus,
-}) {
+function Map() {
   const classes = useStyles();
   const [viewport, setViewport] = useState({
     height: '100%',
@@ -21,6 +16,12 @@ function Map({
     zoom: MAP_CENTER.zoom,
   });
   const [selectedStation, setSelectedStation] = useState(null);
+  const {
+    handleStationSelect,
+    isBikeActive,
+    stationInformation,
+    stationStatus,
+  } = useStore();
   const availableNumbers = isBikeActive
     ? stationStatus.map(station => station.num_bikes_available)
     : stationStatus.map(station => station.num_docks_available);
@@ -119,12 +120,5 @@ function Map({
     </div>
   );
 }
-
-Map.propTypes = {
-  handleStationSelect: PropTypes.func.isRequired,
-  isBikeActive: PropTypes.bool.isRequired,
-  stationInformation: PropTypes.array.isRequired,
-  stationStatus: PropTypes.array.isRequired,
-};
 
 export default Map;

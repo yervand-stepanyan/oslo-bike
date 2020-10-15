@@ -1,10 +1,5 @@
 import React, { useEffect, useReducer, useState } from 'react';
 
-import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import DirectionsBikeIcon from '@material-ui/icons/DirectionsBike';
-import LocalParkingIcon from '@material-ui/icons/LocalParking';
-
 import { addSelectedStation } from '../state/actions';
 import API from '../fetchAPI';
 import { API_ROUTES } from '../globals/constants';
@@ -12,7 +7,7 @@ import Header from '../components/Header';
 import { initialState, stationReducer } from '../state/reducer';
 import Loader from '../components/Loader';
 import { loadState, saveState } from '../helpers/localStorage';
-import Map from '../components/Map';
+import MainComponent from '../components/MainComponent';
 import StoreContext from '../state/context';
 import { useStyles } from './Main.style';
 
@@ -21,6 +16,7 @@ function Main() {
   const [isBikeActive, setIsBikeActive] = useState(
     loadState('isBikeActive') !== undefined ? loadState('isBikeActive') : true
   );
+  const [isLoading, setIsLoading] = useState(true);
   const [stationInformation, setStationInformation] = useState();
   const [stationStatus, setStationStatus] = useState();
   const [stateSelectedStation, dispatchSelectedStation] = useReducer(
@@ -37,7 +33,9 @@ function Main() {
       await setStationInformation(responseDataArray[0].data.stations);
       await setStationStatus(responseDataArray[1].data.stations);
     } catch (e) {
-      console.log(e);
+      setIsLoading(false);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -71,46 +69,19 @@ function Main() {
 
   return (
     <div className={classes.mainContainer}>
-      <StoreContext.Provider value={stateSelectedStation}>
+      <StoreContext.Provider
+        value={{
+          handleBikeSelect,
+          handleParkingSelect,
+          handleStationSelect,
+          isBikeActive,
+          stateSelectedStation,
+          stationInformation,
+          stationStatus,
+        }}
+      >
         <Header />
-        {stationInformation && stationStatus ? (
-          <div className={classes.mapAndButtonGroupWrapper}>
-            <Map
-              handleStationSelect={handleStationSelect}
-              isBikeActive={isBikeActive}
-              stationInformation={stationInformation}
-              stationStatus={stationStatus}
-            />
-            <div className={classes.buttonGroupContainer}>
-              <ButtonGroup
-                aria-label="outlined primary button group"
-                className={classes.buttonGroup}
-                color="primary"
-                fullWidth
-                variant="contained"
-              >
-                <Button
-                  className={
-                    isBikeActive ? classes.activeBtn : classes.defaultBtn
-                  }
-                  onClick={handleBikeSelect}
-                >
-                  <DirectionsBikeIcon />
-                </Button>
-                <Button
-                  className={
-                    !isBikeActive ? classes.activeBtn : classes.defaultBtn
-                  }
-                  onClick={handleParkingSelect}
-                >
-                  <LocalParkingIcon />
-                </Button>
-              </ButtonGroup>
-            </div>
-          </div>
-        ) : (
-          <Loader />
-        )}
+        {isLoading ? <Loader /> : <MainComponent />}
       </StoreContext.Provider>
     </div>
   );

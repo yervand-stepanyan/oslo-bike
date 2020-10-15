@@ -26,7 +26,7 @@ export const useStyles = makeStyles({
     backgroundColor: '#005FC9',
   },
   markerNotAvailable: {
-    backgroundColor: 'grey',
+    backgroundColor: '#808080',
   },
   numberSpan: {
     fontSize: '10px',
