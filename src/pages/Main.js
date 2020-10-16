@@ -17,8 +17,8 @@ function Main() {
     loadState('isBikeActive') !== undefined ? loadState('isBikeActive') : true
   );
   const [isLoading, setIsLoading] = useState(true);
-  const [stationInformation, setStationInformation] = useState();
-  const [stationStatus, setStationStatus] = useState();
+  const [stationInformation, setStationInformation] = useState([]);
+  const [stationStatus, setStationStatus] = useState([]);
   const [stateSelectedStation, dispatchSelectedStation] = useReducer(
     stationReducer,
     initialState
@@ -30,9 +30,11 @@ function Main() {
       const responseDataArray = await Promise.all(
         API_ROUTES.map(({ url }) => API.get(url))
       );
+      const stationInfo = await responseDataArray[0].data.stations;
+      const stnStatus = await responseDataArray[1].data.stations;
 
-      await setStationInformation(responseDataArray[0].data.stations);
-      await setStationStatus(responseDataArray[1].data.stations);
+      setStationInformation(stationInfo);
+      setStationStatus(stnStatus);
 
       setTimer(setTimeout(getData, 10000));
     } catch (e) {
@@ -44,7 +46,26 @@ function Main() {
 
   useEffect(() => {
     getData();
+
+    return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (stateSelectedStation.station_id) {
+      const filteredStation = stationStatus.find(
+        station => station.station_id === stateSelectedStation.station_id
+      );
+
+      if (
+        filteredStation.num_bikes_available !==
+          stateSelectedStation.num_bikes_available ||
+        filteredStation.num_docks_available !==
+          stateSelectedStation.num_docks_available
+      ) {
+        dispatchSelectedStation(addSelectedStation(filteredStation));
+      }
+    }
+  }, [stationStatus]);
 
   const handleBikeSelect = () => {
     if (!isBikeActive) {

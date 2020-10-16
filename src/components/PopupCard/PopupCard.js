@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import Typography from '@material-ui/core/Typography';
@@ -11,16 +11,9 @@ function PopupCard({ address, name }) {
   const classes = useStyles();
   const { stateSelectedStation } = useStore();
   const {
-    num_bikes_available: bikes,
-    num_docks_available: docks,
+    num_bikes_available: numOfBikes,
+    num_docks_available: numOfDocks,
   } = stateSelectedStation;
-  const [numOfBikes, setNumOfBikes] = useState(bikes);
-  const [numOfDocks, setNumOfDocks] = useState(docks);
-
-  useEffect(() => {
-    setNumOfBikes(bikes);
-    setNumOfDocks(docks);
-  }, [bikes, docks]);
 
   return (
     <div className={classes.popupCardContainer}>

@@ -7,6 +7,7 @@ import { useStyles } from './Error.style';
 
 function Error() {
   const classes = useStyles();
+
   return (
     <div className={classes.errorContainer}>
       <div className={classes.textWrapper}>
