@@ -14,7 +14,7 @@ function MainComponent() {
   return (
     <div>
       {stationInformation && stationStatus ? (
-        <div className={classes.mapAndButtonGroupWrapper}>
+        <div className={classes.mainComponentContainer}>
           <Map />
           <Buttons />
         </div>
