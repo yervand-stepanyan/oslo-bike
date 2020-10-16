@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import ReactMapGL, { Marker, NavigationControl, Popup } from 'react-map-gl';
 
 import { MAP_CENTER, MAP_STYLE } from '../../globals/constants';
+import { MARKER_SIZE, useStyles } from './Map.style';
 import PopupCard from '../PopupCard';
-import { useStyles } from './Map.style';
 import { useStore } from '../../state/useStore';
 
 function Map() {
@@ -104,8 +104,8 @@ function Map() {
             dynamicPosition={false}
             latitude={selectedStation.lat}
             longitude={selectedStation.lon}
-            offsetLeft={11}
-            offsetTop={22}
+            offsetLeft={MARKER_SIZE / 2}
+            offsetTop={MARKER_SIZE}
             onClose={() => handlePopupClose()}
           >
             <PopupCard

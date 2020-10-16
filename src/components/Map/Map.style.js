@@ -1,5 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
+export const MARKER_SIZE = 22;
+
 export const useStyles = makeStyles({
   mapContainer: {
     height: '85vh',
@@ -18,9 +20,9 @@ export const useStyles = makeStyles({
     borderRadius: '50%',
     color: 'white',
     cursor: 'pointer',
-    height: '22px',
+    height: `${MARKER_SIZE}px`,
     outline: 'none',
-    width: '22px',
+    width: `${MARKER_SIZE}px`,
   },
   markerAvailable: {
     backgroundColor: '#005FC9',
