@@ -2,6 +2,7 @@
   "name": "oslo-bike",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://yervand-stepanyan.github.io/oslo-bike",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
@@ -19,6 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "lint-no-fix": "eslint src",
     "lint-fix": "eslint src --fix"
   },
@@ -44,6 +47,7 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.21.4",
     "eslint-plugin-react-hooks": "^4.1.2",
+    "gh-pages": "^3.1.0",
     "prettier": "2.1.2"
   }
 }
