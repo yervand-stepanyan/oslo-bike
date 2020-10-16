@@ -14,6 +14,14 @@ function PopupCard({ address, name }) {
     num_bikes_available: numOfBikes,
     num_docks_available: numOfDocks,
   } = stateSelectedStation;
+  const bikesText = `${numOfBikes} ${
+    numOfBikes === 1 ? AVAILABLE_INFO.bike.single : AVAILABLE_INFO.bike.multi
+  }`;
+  const docksText = `${numOfDocks} ${
+    numOfDocks === 1
+      ? AVAILABLE_INFO.parking.single
+      : AVAILABLE_INFO.parking.multi
+  }`;
 
   return (
     <div className={classes.popupCardContainer}>
@@ -35,13 +43,7 @@ function PopupCard({ address, name }) {
             />
           </div>
           <div className={classes.textWrapper}>
-            <Typography variant="subtitle1">
-              {`${numOfBikes} ${
-                numOfBikes === 1
-                  ? AVAILABLE_INFO.bike.single
-                  : AVAILABLE_INFO.bike.multi
-              }`}
-            </Typography>
+            <Typography variant="subtitle1">{bikesText}</Typography>
           </div>
         </div>
         <div className={classes.iconTextWrapper}>
@@ -53,13 +55,7 @@ function PopupCard({ address, name }) {
             />
           </div>
           <div className={classes.textWrapper}>
-            <Typography variant="subtitle1">
-              {`${numOfDocks} ${
-                numOfDocks === 1
-                  ? AVAILABLE_INFO.parking.single
-                  : AVAILABLE_INFO.parking.multi
-              }`}
-            </Typography>
+            <Typography variant="subtitle1">{docksText}</Typography>
           </div>
         </div>
       </div>
