@@ -11,4 +11,7 @@ export const useStyles = makeStyles({
   titleWrapper: {
     marginLeft: '12px',
   },
+  titleSpan: {
+    fontSize: '18px',
+  },
 });

@@ -2,7 +2,6 @@ import React from 'react';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 
 import { LOGO_IMAGE, TITLE } from '../../globals/constants';
 import { useStyles } from './Header.style';
@@ -22,7 +21,7 @@ function Header() {
             />
           </div>
           <div className={classes.titleWrapper}>
-            <Typography variant="h6">{TITLE}</Typography>
+            <span className={classes.titleSpan}>{TITLE}</span>
           </div>
         </Toolbar>
       </AppBar>
