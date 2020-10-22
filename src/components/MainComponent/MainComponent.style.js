@@ -2,6 +2,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles({
   mainComponentContainer: {
-    height: '91vh',
+    minHeight: '80vh',
+    '@media only screen and (orientation: landscape)': {
+      minHeight: '70vh',
+    },
   },
 });

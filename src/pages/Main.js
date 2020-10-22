@@ -5,11 +5,11 @@ import API from '../fetchAPI';
 import { API_ROUTES } from '../globals/constants';
 import Header from '../components/Header';
 import { initialState, stationReducer } from '../state/reducer';
-import Loader from '../components/Loader';
 import { loadState, saveState } from '../helpers/localStorage';
 import MainComponent from '../components/MainComponent';
 import StoreContext from '../state/context';
 import { useStyles } from './Main.style';
+import Buttons from '../components/Buttons';
 
 function Main() {
   const classes = useStyles();
@@ -105,7 +105,8 @@ function Main() {
         }}
       >
         <Header />
-        {isLoading ? <Loader /> : <MainComponent />}
+        <MainComponent isLoading={isLoading} />
+        {!isLoading && stationInformation && stationStatus ? <Buttons /> : null}
       </StoreContext.Provider>
     </div>
   );

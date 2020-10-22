@@ -13,10 +13,9 @@ function Buttons() {
   const { isBikeActive, handleBikeSelect, handleParkingSelect } = useStore();
 
   return (
-    <div className={classes.buttonsContainer}>
+    <div>
       <ButtonGroup
         aria-label="outlined primary button group"
-        className={classes.buttonGroup}
         color="primary"
         fullWidth
         variant="contained"

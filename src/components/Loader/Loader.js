@@ -8,7 +8,7 @@ function Loader() {
   const classes = useStyles();
 
   return (
-    <div className={classes.pageLoaderContainer}>
+    <div className={classes.loaderContainer}>
       <CircularProgress size={60} thickness={4} />
     </div>
   );

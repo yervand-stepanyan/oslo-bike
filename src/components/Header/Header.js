@@ -10,18 +10,20 @@ function Header() {
   const classes = useStyles();
 
   return (
-    <div className={classes.headerContainer}>
+    <div>
       <AppBar position="static">
         <Toolbar>
-          <div>
-            <img
-              alt={LOGO_IMAGE.title}
-              className={classes.logoImage}
-              src={LOGO_IMAGE.src}
-            />
-          </div>
-          <div className={classes.titleWrapper}>
-            <span className={classes.titleSpan}>{TITLE}</span>
+          <div className={classes.logoTitleWrapper}>
+            <div>
+              <img
+                alt={LOGO_IMAGE.title}
+                className={classes.logoImage}
+                src={LOGO_IMAGE.src}
+              />
+            </div>
+            <div className={classes.titleWrapper}>
+              <span className={classes.titleSpan}>{TITLE}</span>
+            </div>
           </div>
         </Toolbar>
       </AppBar>

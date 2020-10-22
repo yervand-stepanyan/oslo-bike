@@ -4,8 +4,11 @@ export const MARKER_SIZE = 22;
 
 export const useStyles = makeStyles({
   mapContainer: {
-    height: '85vh',
+    height: '80vh',
     width: '100%',
+    '@media only screen and (orientation: landscape)': {
+      height: '70vh',
+    },
   },
   navigationControlContainer: {
     bottom: '40px',

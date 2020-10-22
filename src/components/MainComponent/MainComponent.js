@@ -1,28 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import Buttons from '../Buttons';
 import Error from '../Error';
 import Map from '../Map';
 
+import Loader from '../Loader';
 import { useStyles } from './MainComponent.style';
 import { useStore } from '../../state/useStore';
 
-function MainComponent() {
+function MainComponent({ isLoading }) {
   const classes = useStyles();
   const { stationInformation, stationStatus } = useStore();
 
   return (
-    <div>
-      {stationInformation && stationStatus ? (
-        <div className={classes.mainComponentContainer}>
-          <Map />
-          <Buttons />
-        </div>
+    <div className={classes.mainComponentContainer}>
+      {isLoading ? (
+        <Loader />
       ) : (
-        <Error />
+        <div>{stationInformation && stationStatus ? <Map /> : <Error />}</div>
       )}
     </div>
   );
 }
+
+MainComponent.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+};
 
 export default MainComponent;
