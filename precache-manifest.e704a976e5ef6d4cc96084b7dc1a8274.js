@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5c3f2642d231c769d8b4ce1bac7bfbe8",
+    "revision": "dae69fdb552bdcee097e94cac7d027b9",
     "url": "/oslo-bike/index.html"
   },
   {
-    "revision": "49c1e50cdad7a7415c05",
+    "revision": "99ea0a199f47da5ec6e4",
     "url": "/oslo-bike/static/css/main.5ecd60fb.chunk.css"
   },
   {
-    "revision": "d151f1de016b47e70698",
-    "url": "/oslo-bike/static/js/2.8b3d5f10.chunk.js"
+    "revision": "35bb634d7b160004f6a8",
+    "url": "/oslo-bike/static/js/2.69bf4138.chunk.js"
   },
   {
     "revision": "14dc907096ff79e6b7be55307d0260dd",
-    "url": "/oslo-bike/static/js/2.8b3d5f10.chunk.js.LICENSE.txt"
+    "url": "/oslo-bike/static/js/2.69bf4138.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "49c1e50cdad7a7415c05",
-    "url": "/oslo-bike/static/js/main.aaace15f.chunk.js"
+    "revision": "99ea0a199f47da5ec6e4",
+    "url": "/oslo-bike/static/js/main.9afc0771.chunk.js"
   },
   {
     "revision": "e4e67fcf5b82777719bc",

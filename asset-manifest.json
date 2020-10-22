@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/oslo-bike/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/oslo-bike/static/js/main.aaace15f.chunk.js",
-    "main.js.map": "/oslo-bike/static/js/main.aaace15f.chunk.js.map",
+    "main.js": "/oslo-bike/static/js/main.9afc0771.chunk.js",
+    "main.js.map": "/oslo-bike/static/js/main.9afc0771.chunk.js.map",
     "runtime-main.js": "/oslo-bike/static/js/runtime-main.2f2f8afa.js",
     "runtime-main.js.map": "/oslo-bike/static/js/runtime-main.2f2f8afa.js.map",
-    "static/js/2.8b3d5f10.chunk.js": "/oslo-bike/static/js/2.8b3d5f10.chunk.js",
-    "static/js/2.8b3d5f10.chunk.js.map": "/oslo-bike/static/js/2.8b3d5f10.chunk.js.map",
+    "static/js/2.69bf4138.chunk.js": "/oslo-bike/static/js/2.69bf4138.chunk.js",
+    "static/js/2.69bf4138.chunk.js.map": "/oslo-bike/static/js/2.69bf4138.chunk.js.map",
     "index.html": "/oslo-bike/index.html",
-    "precache-manifest.e617dd9d19c45af29791efe2091f8efc.js": "/oslo-bike/precache-manifest.e617dd9d19c45af29791efe2091f8efc.js",
+    "precache-manifest.e704a976e5ef6d4cc96084b7dc1a8274.js": "/oslo-bike/precache-manifest.e704a976e5ef6d4cc96084b7dc1a8274.js",
     "service-worker.js": "/oslo-bike/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/oslo-bike/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.8b3d5f10.chunk.js.LICENSE.txt": "/oslo-bike/static/js/2.8b3d5f10.chunk.js.LICENSE.txt"
+    "static/js/2.69bf4138.chunk.js.LICENSE.txt": "/oslo-bike/static/js/2.69bf4138.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.2f2f8afa.js",
-    "static/js/2.8b3d5f10.chunk.js",
+    "static/js/2.69bf4138.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.aaace15f.chunk.js"
+    "static/js/main.9afc0771.chunk.js"
   ]
 }
