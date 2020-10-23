@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/oslo-bike/precache-manifest.e704a976e5ef6d4cc96084b7dc1a8274.js"
+  "/oslo-bike/precache-manifest.37ad11f1b2e6131c3047ece39669fb0c.js"
 );
 
 self.addEventListener('message', (event) => {
