@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer, useState } from 'react';
+import Div100vh from 'react-div-100vh';
 
 import { addSelectedStation } from '../state/actions';
 import API from '../fetchAPI';
@@ -92,7 +93,7 @@ function Main() {
   };
 
   return (
-    <div className={classes.mainContainer}>
+    <Div100vh className={classes.mainContainer}>
       <StoreContext.Provider
         value={{
           handleBikeSelect,
@@ -108,7 +109,7 @@ function Main() {
         <MainComponent isLoading={isLoading} />
         {!isLoading && stationInformation && stationStatus ? <Buttons /> : null}
       </StoreContext.Provider>
-    </div>
+    </Div100vh>
   );
 }
 
